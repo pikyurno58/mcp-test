@@ -90,18 +90,91 @@
             margin-bottom: 0.5rem;
         }
 
-        .contact-info {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .contact-item {
-            padding: 1rem;
+        .testimonial-card {
             background: var(--background-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: 0.5rem;
+            left: 1rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        input, textarea {
+            padding: 0.8rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 0.5rem;
-            text-align: center;
+            font-family: inherit;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background: var(--secondary-color);
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
         }
 
         @media (max-width: 768px) {
@@ -115,6 +188,10 @@
 
             section {
                 padding: 1.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
             }
         }
     </style>
@@ -155,22 +232,55 @@
             </div>
         </section>
 
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"An amazing platform that has transformed our workflow. The interface is intuitive and the features are exactly what we needed."</p>
+                    <p><strong>- Sarah Johnson, Tech Lead</strong></p>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The best solution we've found for our needs. The support team is fantastic and the platform is rock-solid."</p>
+                    <p><strong>- Mike Chen, Project Manager</strong></p>
+                </div>
+            </div>
+        </section>
+
         <section id="contact">
-            <h2>Contact Us</h2>
-            <p>We'd love to hear from you! Get in touch with our team:</p>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <p>contact@example.com</p>
+            <h2>Get in Touch</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
-                <div class="contact-item">
-                    <h3>Phone</h3>
-                    <p>(555) 123-4567</p>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
-                <div class="contact-item">
-                    <h3>Address</h3>
-                    <p>123 Tech Street<br>Innovation City</p>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
                 </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <section id="newsletter">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for the latest updates and news.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <section id="social">
+            <h2>Connect With Us</h2>
+            <div class="social-links">
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Instagram</a>
             </div>
         </section>
     </main>
